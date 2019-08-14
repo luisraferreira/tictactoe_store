@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { debuglog } from "util";
 export default {
   name: "Board",
   computed: {
@@ -50,5 +49,28 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/*cell config*/
+.board div:nth-of-type(1),
+.board div:nth-of-type(2),
+.board div:nth-of-type(3) {
+  border-top: none;
+}
+
+.board div:nth-of-type(7),
+.board div:nth-of-type(8),
+.board div:nth-of-type(9) {
+  border-bottom: none;
+}
+
+.board div:nth-of-type(1),
+.board div:nth-of-type(4),
+.board div:nth-of-type(7) {
+  border-left: none;
+}
+
+.board div:nth-of-type(3n + 3) {
+  border-right: none;
 }
 </style>
