@@ -3,8 +3,11 @@
     <div v-for="item in getPlayers" :key="item.id" class="player">
       <p>Nome: {{ item.Name }}</p>
       <p>Símbolo: {{ item.Symbol }}</p>
+      <p>Vitórias: {{ item.Wins  }}</p>
     </div>
     <p>Player a jogar: {{getActivePlayer.Name}}</p>
+    <span>Empates: {{getTies}}</span>
+
   </div>
 </template>
 
@@ -21,6 +24,9 @@ export default {
       });
 
       return activePlayer;
+    },
+    getTies() {
+      return this.$store.state.ties;
     }
   }
 };
