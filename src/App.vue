@@ -2,18 +2,21 @@
   <div id="app">
     <Info />
     <board />
+    <modal />
   </div>
 </template>
 
 <script>
 import Board from "./components/Board.vue";
 import Info from "./components/Info.vue";
+import Modal from "./components/Modal.vue";
 
 export default {
   name: "app",
   components: {
     Board,
-    Info
+    Info,
+    Modal
   }
 };
 </script>

@@ -3,7 +3,13 @@
   <div class="game">
     <h1>Game Board</h1>
     <div class="board">
-      <div v-for="cell in getBoard" :key="cell.id" @click="writeMark(cell.id)">{{ cell.mark }}</div>
+      <div
+        v-for="cell in getBoard"
+        :key="cell.id"
+        @click="writeMark(cell.id)"
+        :id="cell.id"
+        class="cell"
+      >{{ cell.mark }}</div>
     </div>
   </div>
 </template>
@@ -49,6 +55,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 40px;
 }
 
 /*cell config*/
@@ -72,5 +79,9 @@ export default {
 
 .board div:nth-of-type(3n + 3) {
   border-right: none;
+}
+
+.win {
+  background-color: aqua;
 }
 </style>
