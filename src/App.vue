@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Info />
     <board />
     <modal />
   </div>
@@ -8,14 +7,12 @@
 
 <script>
 import Board from "./components/Board.vue";
-import Info from "./components/Info.vue";
 import Modal from "./components/Modal.vue";
 
 export default {
   name: "app",
   components: {
     Board,
-    Info,
     Modal
   }
 };
@@ -23,11 +20,10 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Nunito", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #3fc1c9;
 }
 </style>

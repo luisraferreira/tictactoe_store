@@ -1,7 +1,7 @@
 /* eslint-disable */
 <template>
   <div class="game">
-    <h1>Game Board</h1>
+    <Info />
     <div class="board">
       <div
         v-for="cell in getBoard"
@@ -15,8 +15,13 @@
 </template>
 
 <script>
+import Info from "./Info.vue";
+
 export default {
   name: "Board",
+  components: {
+    Info
+  },
   computed: {
     getBoard() {
       return this.$store.state.board;
@@ -24,16 +29,19 @@ export default {
   },
   methods: {
     writeMark(cellId) {
-      const activePlayer = this.$store.state.players.find(function(player) {
-        return player.Active;
-      });
+      //Check if someone already won and don't let them place a mark
+      if (!this.$store.state.win) {
+        const activePlayer = this.$store.state.players.find(function(player) {
+          return player.Active;
+        });
 
-      const settings = {
-        cell: cellId,
-        player: activePlayer
-      };
+        const settings = {
+          cell: cellId,
+          player: activePlayer
+        };
 
-      this.$store.dispatch("writeMark", settings);
+        this.$store.dispatch("writeMark", settings);
+      }
     }
   }
 };
@@ -44,18 +52,20 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 0;
-  max-width: 300px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 450px;
+  margin: 40px auto;
 }
 
 .board div {
-  height: 100px;
-  width: 100px;
-  border: 2px solid red;
+  height: 150px;
+  max-width: 150px;
+  width: 100%;
+  border: 1px solid #fc5185;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 40px;
+  font-size: calc(24px + (80 - 24) * ((100vw - 300px) / (1600 - 300)));
 }
 
 /*cell config*/
@@ -82,6 +92,6 @@ export default {
 }
 
 .win {
-  background-color: aqua;
+  background-color: #364f6b;
 }
 </style>

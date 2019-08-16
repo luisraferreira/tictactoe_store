@@ -6,14 +6,14 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         players: [{
-                Name: 'Jogador Um',
+                Name: 'Jogador um',
                 Symbol: 'O',
                 Active: true,
                 Wins: 0,
                 WonLastRound: false
             },
             {
-                Name: 'Jogador Dois',
+                Name: 'Jogador dois',
                 Symbol: 'X',
                 Active: false,
                 Wins: 0,

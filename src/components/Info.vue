@@ -1,13 +1,15 @@
 <template>
   <div class="info">
     <div v-for="item in getPlayers" :key="item.id" class="player">
-      <p>Nome: {{ item.Name }}</p>
-      <p>Símbolo: {{ item.Symbol }}</p>
-      <p>Vitórias: {{ item.Wins  }}</p>
+      <p>{{ item.Name }}</p>
+      <p>Vitórias: {{ item.Wins }}</p>
+      <p>{{ item.Symbol }}</p>
     </div>
-    <p>Player a jogar: {{getActivePlayer.Name}}</p>
+    <p class="playing">
+      Player a jogar:
+      <span>{{getActivePlayer.Name}}</span>
+    </p>
     <span>Empates: {{getTies}}</span>
-
   </div>
 </template>
 
@@ -22,7 +24,6 @@ export default {
       const activePlayer = this.$store.state.players.find(function(player) {
         return player.Active;
       });
-
       return activePlayer;
     },
     getTies() {
@@ -34,12 +35,23 @@ export default {
 
 <style scoped>
 .info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
 }
 
 .player {
-  padding: 0 40px;
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #fc5185;
+  margin: 10px auto;
+}
+
+.player p:nth-of-type(2),
+.player p:nth-of-type(3),
+span {
+  font-weight: bold;
+}
+
+.playing {
+  font-size: 20px;
 }
 </style>

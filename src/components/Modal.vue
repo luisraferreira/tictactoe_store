@@ -1,8 +1,8 @@
 /* eslint-disable */
 <template>
   <div class="modal" :class="{show: getIfWon || getIfTied}">
-    <h1 v-if="getIfTied">Ganda empate!</h1>
-    <h1 v-if="getIfWon">Ganda {{getWhoWon.Name}}</h1>
+    <h1 v-if="getIfTied">Empate!</h1>
+    <h1 v-if="getIfWon">O {{getWhoWon.Name}} ganhou desta vez!</h1>
 
     <button @click="playAgain">Voltar a jogar</button>
   </div>
@@ -50,6 +50,9 @@ export default {
 }
 
 .show {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>
